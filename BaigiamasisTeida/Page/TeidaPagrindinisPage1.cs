@@ -26,6 +26,10 @@ namespace BaigiamasisTeida.Page
         private IWebElement Paieska => Driver.FindElement(By.Id("search_icon"));
         private IWebElement Paieska2 => Driver.FindElement(By.Id("search_icon"));
         private IWebElement Kamuolys => Driver.FindElement(By.CssSelector("#search_div > table > tbody > tr > td.url > a"));
+        private IWebElement SearchForProductInput => Driver.FindElement(By.Id("searchParam")); // NAUJAS
+        private IWebElement LinkToProduct => Driver.FindElement(By.CssSelector("#search_div > table > tbody > tr > td.url > a")); //NAUJAS
+        private IWebElement PutProductIntoBasket => Driver.FindElement(By.Id("toBasket")); //NAUJAS
+        private IWebElement GoToBasketButton => Driver.FindElement(By.CssSelector("#headerKrepselis > a > button")); //NAUJAS
 
         public TeidaPagrindinisPage1(IWebDriver webdriver) : base(webdriver)   //konstruktorius
          { }  
@@ -104,8 +108,37 @@ namespace BaigiamasisTeida.Page
             return this;
         }
 
+        public TeidaPagrindinisPage1 ProductCodeInInput(string productCode)  // NAUJAS
+        {
+            SearchForProductInput.SendKeys(productCode);
+            return this;
+        }
 
+        public TeidaPagrindinisPage1 ClickLinkToProduct() //NAUJAS
+        {
+            LinkToProduct.Click();
+            return this;
+        }
 
+        public TeidaPagrindinisPage1 ClickPutProductIntoBasket() //NAUJAS
+        {
+            PutProductIntoBasket.Click();
+            return this;
+        }
+
+        public TeidaPagrindinisPage1 PutProductByCodeIntoBasket(string productCode) //NAUJAS
+        {
+            ProductCodeInInput(productCode);
+            ClickLinkToProduct();
+            ClickPutProductIntoBasket();
+            ClickButtonToBasket();
+            return this;
+        }
+        public TeidaPagrindinisPage1 ClickButtonToBasket() //NAUJAS
+        {
+            GoToBasketButton.Click();
+            return this;
+        }
 
     }
 

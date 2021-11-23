@@ -22,6 +22,7 @@ namespace BaigiamasisTeida.Test
 
         public static KamuolysPage100 _kamuolysPage100;
         public static Krepselis101 _krepselis101;
+        public static KrepselisPage _krepselisPage; //NAUJAS
 
 
         // public static AlertPage _alertPage;
@@ -46,6 +47,7 @@ namespace BaigiamasisTeida.Test
 
             _kamuolysPage100 = new KamuolysPage100(driver);
             _krepselis101 = new Krepselis101(driver);
+            _krepselisPage = new KrepselisPage(driver); //NAUJAS
 
             //_alertPage = new AlertPage(driver);
         }

@@ -17,7 +17,7 @@ namespace BaigiamasisTeida.Test
              //AcceptCookie();
              .ClickButtonPagrindinisPrisijungti();*/
         [Order(1)]
-        [TestCase("email", "password", TestName = "Test New User Prisijungimas")]
+        [TestCase("gytukas@yahoo.com", "Asmokausi1", TestName = "Test New User Prisijungimas")]
         public void TestNewUserPrisijungimas(string elPastas, string slaptazodis)
         {
             _teidaPagrindinisPage1.NavigateToDefaultPage()
@@ -31,7 +31,7 @@ namespace BaigiamasisTeida.Test
         }
 
 
-        [Order(2)]
+        [Order(3)]
         [Test]
         public void TestAtsijungti()
         {
@@ -40,19 +40,30 @@ namespace BaigiamasisTeida.Test
                 .ClickButtonPagrindinisPrisijungti()
                 .CheckLogoutResult();
         }
-        //[Test]
 
-        //public void TestKamuoliukas10()
+        [Order(2)]                         //NAUJAS
+        [TestCase("97.50")]
+        public void TestIfProductWithSpecificCodeIsInTheBasket(string productCode)
+        {
+            _teidaPagrindinisPage1.NavigateToDefaultPage()
+                .PutProductByCodeIntoBasket(productCode);
+            _krepselisPage.CheckIfRightProduct(productCode);
+
+        }
+        //[Order(2)]
+        //[TestCase("97.50")]
+
+        //public void TestIfProductWith SpecificCodeIsInTheBasket()
         //{
         //    _teidaVisosPrekesPage5_1.NavigateToDefaultPage()
         //       .ClickKamuoliukas10();
         //    _teidaKamuoliukas10Page6.NavigateToDefaultPage()
         //        .ClickButtonIKrepseli1()
         //        .CheckKrepselisResult();
-        //   // _teidaKrepselisPage8.NavigateToDefaultPage()
-        //        //.ClickButtonIstrynti();
+        //    _teidaKrepselisPage8.NavigateToDefaultPage()
+        //   .ClickButtonIstrynti();
 
-        //    //.ClickSumazinti1();
+        //    .ClickSumazinti1();
         //}
 
         //[Test]
