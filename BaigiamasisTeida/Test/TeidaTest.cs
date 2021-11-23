@@ -17,7 +17,7 @@ namespace BaigiamasisTeida.Test
              //AcceptCookie();
              .ClickButtonPagrindinisPrisijungti();*/
         [Order(1)]
-        [TestCase("gytukas@yahoo.com", "Asmokausi1", TestName = "Test New User Prisijungimas")]
+        [TestCase("email", "password", TestName = "Test New User Prisijungimas")]
         public void TestNewUserPrisijungimas(string elPastas, string slaptazodis)
         {
             _teidaPagrindinisPage1.NavigateToDefaultPage()
